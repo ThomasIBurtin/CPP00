@@ -1,5 +1,4 @@
 #include "Contact.hpp"
-#include <iomanip>
 
 Contact::Contact()
 {
@@ -16,9 +15,11 @@ std::string Contact::new_infos(std::string str) const
     std::string info;
 
     std::cout << str;
-    std::getline(std::cin, info);
+    std::getline(std::cin, info); 
     while (info.empty())
     {
+        if(std::cin.eof())
+            exit(EXIT_FAILURE);
         std::cout << "data cannot be empty : ";
         std::getline(std::cin, info);
     }

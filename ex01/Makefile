@@ -1,17 +1,18 @@
+
 CC = g++
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra -std=c++98
 SRC = Contact.cpp \
 	  PhoneBook.cpp \
 	  main.cpp
-OBJ = $(SRC:.c=.o)
-NAME = phonebook
+OBJ = $(SRC:.cpp=.o)
+NAME = PhoneBook
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(LIBS)
+	$(CC) -o $(NAME) $(OBJ)
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

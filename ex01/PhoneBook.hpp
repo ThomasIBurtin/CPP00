@@ -11,7 +11,7 @@ public:
     ~PhoneBook();
 
     void add_contact();
-    void search_contact() const;
+    void search_contact();
 
 private:
     Contact liste_contact[9];

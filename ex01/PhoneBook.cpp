@@ -22,7 +22,7 @@ void PhoneBook::add_contact()
     }
 }
 
-void PhoneBook::search_contact() const
+void PhoneBook::search_contact()
 {
     int temp;
     std::string str;
@@ -41,23 +41,13 @@ void PhoneBook::search_contact() const
     std::getline(std::cin, str);
     while (str.empty())
     {
+        if(std::cin.eof())
+            exit(EXIT_FAILURE);
         std::cout << "wich index : ";
         std::getline(std::cin, str);
     }
-    try
-    {
-        temp = std::stoi(str);
-    } 
-    catch (const std::invalid_argument& e)
-    {
-        std::cout << "Conversion failed: invalid argument" << std::endl;
-    }
-    catch (const std::out_of_range& e)
-    {
-        std::cout << "Conversion failed: out of range" << std::endl;
-    }
-
-    if (temp < _index)
+    temp = std::atoi(str.c_str());
+    if (temp < _index && (temp != 0 || str[0] == '0'))
         this->liste_contact[temp].printf_contact();
     else
         std::cout << "cant find this index " << std::endl;

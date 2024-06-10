@@ -2,6 +2,8 @@
 # define CONTACT
 
 #include <iostream>
+#include <cstdlib>
+#include <iomanip>
 
 class Contact
 {

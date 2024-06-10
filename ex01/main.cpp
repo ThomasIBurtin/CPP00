@@ -13,6 +13,8 @@ int main()
         std::getline(std::cin, str);
         while (str.empty())
         {
+            if(std::cin.eof())
+                exit(EXIT_FAILURE);
             std::cout << "commande : ";
             std::getline(std::cin, str);
         }
